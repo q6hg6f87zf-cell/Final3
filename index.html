@@ -1447,9 +1447,8 @@ function renderVillains() {
   const activeVillains = allVillains.filter(v => (STATE.villainsLive || []).includes(v.id));
   const inactiveVillains = allVillains.filter(v => !(STATE.villainsLive || []).includes(v.id));
 
-  // Helper to build the lore cards for BOTH active and inactive bosses
   const buildCard = (v, isActive) => `
-    <div class="card" style="border-color:${v.color}${isActive ? '90' : '30'}; background:rgba(20,10,30,${isActive ? '0.8' : '0.4'})">
+    <div class="card" style="border-color:${v.color}${isActive ? '90' : '30'}; background:rgba(20,10,30,${isActive ? '0.8' : '0.4'}); margin-bottom:12px">
       <div style="display:flex; justify-content:space-between; align-items:center">
         <div style="display:flex; gap:10px; align-items:center">
           <span style="font-size:1.5rem; ${!isActive ? 'filter:grayscale(1); opacity:0.6;' : ''}">${v.icon}</span>
@@ -1493,8 +1492,8 @@ function renderVillains() {
 
       ${STATE.showAddVillain ? `
         <div class="roll-box" style="border-color:var(--red); margin-bottom:15px">
-          <label class="label">Villain Name</label><input class="input" id="v-name" style="margin-bottom:8px" placeholder="e.g. The Blood Priest">
-          <label class="label">Title</label><input class="input" id="v-title" style="margin-bottom:8px" placeholder="e.g. Keeper of the Old Ways">
+          <label class="label">Villain Name</label><input class="input" id="v-name" style="margin-bottom:8px">
+          <label class="label">Title</label><input class="input" id="v-title" style="margin-bottom:8px">
           <label class="label">Icon</label><input class="input" id="v-icon" placeholder="💀" style="margin-bottom:8px">
           <label class="label">Max HP</label><input class="input" id="v-hp" type="number" value="100" style="margin-bottom:10px">
           <button class="btn btn-red btn-full" onclick="addCustomVillain()">✦ Forge Boss</button>
@@ -1510,6 +1509,7 @@ function renderVillains() {
     </div>
   `;
 }
+
 
 // DICE TAB
 function renderDice(){
